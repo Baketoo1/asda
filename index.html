@@ -1,0 +1,327 @@
+<html lang="cz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link href="./src/css/output.css" rel="stylesheet" />
+    <script defer src="src/js/script.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="dark:bg-[#121212] overflow-x-hidden transition-all">
+    <!-- navbar -->
+    <nav class="sticky top-0 left-0 w-screen bg-white dark:bg-[#121212] transition-all z-50">
+      <div class="flex items-center justify-between py-2 px-5 shadow-md dark:shadow-zinc-900">
+        <div class="inline-flex items-center">
+          <!-- logo -->
+          <img src="img/logo.png" class="h-10" alt="" />
+          <ul class="lg:flex hidden gap-5 px-2.5">
+            <li><a href="#" onclick="zobrazSekci('section1')" class="transition-all text-slate-900 dark:text-white hover:text-blue-400 font-bold">O NÁS</a></li>
+            <li><a href="#" onclick="zobrazSekci('section2')" class="transition-all text-slate-900 dark:text-white hover:text-blue-400 font-bold">UBYTOVÁNÍ</a></li>
+            <li><a href="#" onclick="zobrazSekci('section3')" class="transition-all text-slate-900 dark:text-white hover:text-blue-400 font-bold">REZERVACE</a></li>
+            <li><a href="#" onclick="zobrazSekci('section4')" class="transition-all text-slate-900 dark:text-white hover:text-blue-400 font-bold">OKOLÍ</a></li>
+            <li><a href="#" onclick="zobrazSekci('section5')" class="transition-all text-slate-900 dark:text-white hover:text-blue-400 font-bold">PROVOZNÍ ŘÁD</a></li>
+            <li><a href="#" onclick="zobrazSekci('section6')" class="transition-all text-slate-900 dark:text-white hover:text-blue-400 font-bold">KONTAKT</a></li>
+          </ul>
+        </div>
+        <div class="inline-flex gap-2">
+          <!-- dark mode -->
+          <button id="theme-toggle" type="button" class="text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-700 dark:hover:text-gray-50 transition-all rounded-lg text-sm p-2.5">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+
+          <!-- hamburger menu -->
+          <button id="hamburger-btn" class="rounded-lg text-sm p-2.5 lg:hidden group hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+            <div class="tham tham-e-squeeze tham-w-6">
+              <div class="tham-box">
+                <div class="tham-inner bg-gray-400 group-hover:bg-gray-700 dark:group-hover:bg-gray-50 transition-all"></div>
+              </div>
+            </div>
+          </button>
+
+          <!-- sign in -->
+          <button class="w-max rounded-md shadow-md text-white px-2.5 font-semibold tracking-wide transition-all bg-blue-600 hover:bg-blue-400 hidden lg:block">Přihlásit se</button>
+        </div>
+      </div>
+      <div id="hamburger-menu" class="opacity-0 absolute w-full transition-all bg-white backdrop-blur-sm dark:bg-slate-800 shadow-md p-5 lg:hidden hidden">
+        <ul>
+          <li class="mb-1">
+            <a class="text-center block p-4 text-xl font-semibold text-gray-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-gray-700 dark:hover:text-gray-50 rounded-md" href="#" onclick="zobrazSekci('section1')">O nás</a>
+          </li>
+          <li class="mb-1">
+            <a class="text-center block p-4 text-xl font-semibold text-gray-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-gray-700 dark:hover:text-gray-50 rounded-md" href="#" onclick="zobrazSekci('section2')">Ubytování</a>
+          </li>
+          <li class="mb-1">
+            <a class="text-center block p-4 text-xl font-semibold text-gray-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-gray-700 dark:hover:text-gray-50 rounded-md" href="#" onclick="zobrazSekci('section3')">Rezervace</a>
+          </li>
+          <li class="mb-1">
+            <a class="text-center block p-4 text-xl font-semibold text-gray-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-gray-700 dark:hover:text-gray-50 rounded-md" href="#" onclick="zobrazSekci('section4')">Okolí</a>
+          </li>
+          <li class="mb-1">
+            <a class="text-center block p-4 text-xl font-semibold text-gray-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-gray-700 dark:hover:text-gray-50 rounded-md" href="#" onclick="zobrazSekci('section5')">Provozní řád</a>
+          </li>
+          <li class="mb-1">
+            <a class="text-center block p-4 text-xl font-semibold text-gray-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-gray-700 dark:hover:text-gray-50 rounded-md" href="#" onclick="zobrazSekci('section6')">Kontakt</a>
+          </li>
+          <!-- sign in -->
+          <li class="mb-1 flex justify-center">
+            <button class="block rounded-md shadow-md text-white p-2.5 font-semibold tracking-wide bg-blue-600 hover:bg-blue-400">Přihlásit se</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- sekce o nás -->
+    <section id="section1" class="flex justify-center flex-col items-center p-8 text-lg font-medium">
+      <div class="flex justify-center flex-row-reverse items-center gap-5">
+        <img src="img/flower.jpeg" alt="Flower" class="rounded-md w-64 shadow-xl" />
+        <div class="max-w-lg space-y-5 dark:text-[#B0B0B0] text-[#707070]">
+          <p>Hledali jsme klidné místo pro odpočinutí od všedního shonu, procházky přírodou, meditaci.</p>
+          <p>Tady jsme ho našli a rádi se o něj podělíme. Pod názvem Útulna si možná představíte jen boudu se základním vybavením bez dalších služeb. Základní vybavení bez dalších služeb platí …, ale naše útulna se nachází v patře starobylého statku. Zveme vás do našeho útulného bytu.</p>
+        </div>
+      </div>
+      <div class="flex justify-center items-center gap-5">
+        <img src="img/houses.jpg" alt="Houses" class="rounded-md h-64 shadow-xl" />
+        <p class="max-w-lg dark:text-[#B0B0B0] text-[#707070]">Útulný byt je ten, do kterého se vždy chcete vrátit, abyste si odpočinuli, relaxovali a uklidnili se. Jedná se o velmi zvláštní místo - oázu klidu, bezpečný azyl a zároveň prostor, kde si můžete po stresujícím dni plném výzev odpočinout.</p>
+      </div>
+    </section>
+
+    <!-- sekce ubytování -->
+    <section id="section2" class="w-full max-h-max flex justify-center items-center p-8">
+      <!-- obrázky -->
+      <div class="grid grid-cols-2 lg:grid-cols-3 max-w-max max-h-max gap-4">
+        <div class="grid gap-4">
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/room1.jpg" alt="" id="img1" />
+          </div>
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/room2.jpg" alt="" id="img1" />
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/room3.jpg" alt="" id="img1" />
+          </div>
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/room5.jpg" alt="" id="img1" />
+          </div>
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/kitchen.jpg" alt="" id="img1" />
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/room4.jpeg" alt="" id="img1" />
+          </div>
+          <div>
+            <img class="h-auto w-96 rounded-lg" src="img/outside.jpg" alt="" id="img1" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- sekce rezervace -->
+    <section id="section3"></section>
+
+    <section id="section4" class="flex justify-center flex-col gap-5 items-center p-8 text-lg font-medium">
+      <!-- mapa -->
+      <div class="w-full max-w-3xl">
+        <iframe src="https://frame.mapy.cz/s/kafagegupu" class="rounded-lg" width="100%" height="280" frameborder="0"></iframe>
+      </div>
+
+      <!-- turistická atrakce -->
+      <div class="w-full max-w-3xl space-y-10">
+        <h1 class="text-4xl dark:text-white font-bold mb-4">Tipy z turistika.cz</h1>
+
+        <!-- turistická atrakce 1 -->
+        <div class="flex flex-col md:flex-row gap-4 shadow-2xl rounded-md bg-white dark:bg-[#1E1E1E]">
+          <div class="md:w-1/3">
+            <img src="img/tourist attraction1.jpg" alt="" class="rounded-md" />
+          </div>
+          <div class="md:w-2/3">
+            <h2 class="dark:text-white text-2xl font-semibold mb-2">Rašovice - houbaření</h2>
+            <p class="dark:text-[#B0B0B0] text-[#707070] mb-4">Pokud se nacházíte na Litoměřicku a měli byste chuť si zajet na houby, tak Vás každý odkáže do okolí Úštěka, jedním z takových míst les.</p>
+            <a href="https://www.turistika.cz/mista/rasovice-houbareni/detail" class="text-[#BB86FC] hover:underline">Více informací...</a>
+          </div>
+        </div>
+
+        <!-- turistická atrakce 2 -->
+        <div class="flex flex-col md:flex-row gap-4 shadow-2xl rounded-md bg-white dark:bg-[#1E1E1E]">
+          <div class="md:w-1/3">
+            <img src="img/tourist attraction2.jpg" alt="" class="rounded-md" />
+          </div>
+          <div class="md:w-2/3">
+            <h2 class="dark:text-white text-2xl font-semibold mb-2">Hrádek u Úštěka</h2>
+            <p class="dark:text-[#B0B0B0] text-[#707070] mb-4">Rozsáhlé torzo hradu ležícího na pískovcovém bloku 3 km od Úštěka. Dominuje mu třípatrová věž, později upravená v romantickém stylu.</p>
+            <a href="https://www.turistika.cz/mista/hradek-u-usteka/detail" class="text-[#BB86FC] hover:underline">Více informací...</a>
+          </div>
+        </div>
+
+        <!-- turistická atrakce 3 -->
+        <div class="flex flex-col md:flex-row gap-4 shadow-2xl rounded-md bg-white dark:bg-[#1E1E1E]">
+          <div class="md:w-1/3">
+            <img src="img/tourist attraction3.jpg" alt="" class="rounded-md" />
+          </div>
+          <div class="md:w-2/3">
+            <h2 class="dark:text-white text-2xl font-semibold mb-2">OSTRÉ U ÚŠTĚKU</h2>
+            <p class="dark:text-[#B0B0B0] text-[#707070] mb-4">Poutní místo na vrchu Kalvárie nad vsí OSTRÉ U ÚŠTĚKU bylo vytvořeno liběšickými jezuity v roce 1707 podle návrhu litoměřického architekta Octavia Broggia.</p>
+            <a href="https://www.turistika.cz/mista/ostre-u-usteku/detail" class="text-[#BB86FC] hover:underline">Více informací...</a>
+          </div>
+        </div>
+
+        <!-- turistická atrakce 4 -->
+        <div class="flex flex-col md:flex-row gap-4 shadow-2xl rounded-md bg-white dark:bg-[#1E1E1E]">
+          <div class="md:w-1/3">
+            <img src="img/tourist attraction4.jpg" alt="" class="rounded-md" />
+          </div>
+          <div class="md:w-2/3">
+            <h2 class="dark:text-white text-2xl font-semibold mb-2">Opičí skála</h2>
+            <p class="dark:text-[#B0B0B0] text-[#707070] mb-4">Dva kilometry východně od Úštěka se rozprostírá tak zvané Úštěcké Švýcarsko. Je to pískovcová skalní oblast.</p>
+            <a href="https://www.turistika.cz/mista/opici-skala/detail" class="text-[#BB86FC] hover:underline">Více informací...</a>
+          </div>
+        </div>
+
+        <!-- turistická atrakce 5 -->
+        <div class="flex flex-col md:flex-row gap-4 shadow-2xl rounded-md bg-white dark:bg-[#1E1E1E]">
+          <div class="md:w-1/3">
+            <img src="img/tourist attraction5.jpg" alt="" class="rounded-md" />
+          </div>
+          <div class="md:w-2/3">
+            <h2 class="dark:text-white text-2xl font-semibold mb-2">Výšlap na zříceninu hradu Ronov</h2>
+            <p class="dark:text-[#B0B0B0] text-[#707070] mb-4">Vyrážíme na výlet na nádhernou zříceninu hradu Ronov na Českolipsku nad vesničkou Blíževedly. Cesta bude strmá, náročná, ale rozhodně stojí zato.</p>
+            <a href="https://www.turistika.cz/vylety/vyslap-na-zriceninu-hradu-ronov/detail" class="text-[#BB86FC] hover:underline">Více informací...</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- sekce provozní řád -->
+    <section id="section5" class="py-12 dark:text-[#B0B0B0] text-[#707070]">
+      <div class="max-w-3xl mx-auto px-4">
+        <h1 class="text-3xl font-bold text-center mb-8 dark:text-white text-black">Provozní řád</h1>
+
+        <!-- Pravidlo 1 -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">Před příjezdem</h2>
+          <ul class="list-disc pl-6">
+            <li class="mb-2">Pronájem je třeba domluvit nejpozději dva týdny předem se správcem.</li>
+            <li class="mb-2">Každou skupinu přihlašuje správci vždy jedna plnoletá osoba (vedoucí). Vedoucí pravdivě a úplně uvede údaje o své osobě a o své skupině (počet dětí a dospělých).</li>
+            <li class="mb-2">Vedoucí převezme od správce klíče od přidělených prostor. Od klíčů je zakázáno pořizovat kopie! Při ztrátě klíčů uhradí vedoucí výměnu zámků.</li>
+            <li class="mb-2">Pro parkování jsou vyhrazena 2 místa na trávě za altánem. Parkování v průjezdu je zakázáno. Při obsazení vyhrazených 2 míst je nutno parkovat na obecních pozemcích mimo areál.</li>
+          </ul>
+        </div>
+
+        <!-- Pravidlo 2 -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">Po příjezdu</h2>
+          <ul class="list-disc pl-6">
+            <li class="mb-2">Po příchodu zkontroluje vedoucí ve vlastním zájmu inventář, vybavení a stav přidělených prostor. Případné poškození nafotí a neprodleně pošle správci. Vedoucí zodpovídá za veškerou škodu na movitém i nemovitém majetku základny, kterou během pobytu způsobí nebo zaviní on sám nebo někdo z jeho skupiny. Škodu musí vedoucí odstranit na vlastní náklady do jednoho týdne od jejího vzniku, případně předá správci odpovídající finanční částku na její nápravu.</li>
+            <li class="mb-2">Vedoucí seznámí svou skupinu s tímto provozním řádem a zodpovídá za to, že se jeho skupina bude po celou dobu pobytu tímto řádem řídit.</li>
+            <li class="mb-2">S veškerým vybavením základny zacházej šetrně, udržuj ho čisté! V budově je zakázáno kouřit.</li>
+          </ul>
+        </div>
+
+        <!-- Pravidlo 3 -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">Vybavení</h2>
+          <ul class="list-disc pl-6">
+            <li class="mb-2">Kuchyň je vybavena běžným kuchyňským nádobím a stolním nádobím pro 10 osob.</li>
+            <li class="mb-2">K dispozici je úklidové náčiní, používejte pouze naše přípravky – jsou ekologické. Najdete je v úklidové skříni. Je tam také toaletní papír.</li>
+            <li class="mb-2">Prádlo – k dispozici jsou lůžkoviny a utěrky, které najdete v prádelní skříni na chodbě nebo na šňůrách. Použité před odjezdem vyperte a pověste na šňůry.</li>
+            <li class="mb-2">Ručníky zde nejsou.</li>
+          </ul>
+        </div>
+
+        <!-- Pravidlo 4 -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">Oheň a dřevo</h2>
+          <ul class="list-disc pl-6">
+            <li class="mb-2">Oheň mimo budovu je možno rozdělávat pouze v krbu v altánu.</li>
+            <li class="mb-2">V kuchyni jsou k dispozici krbová kamna. Před odchodem musí být kamna vyhaslá a vymetená.</li>
+            <li class="mb-2">V kuchyni jsou k dispozici krbová kamna. Před odchodem musí být kamna vyhaslá a vymetená.</li>
+            <li class="mb-2">Používat svíčky je možné jen s největší opatrností a je třeba dbát na to, aby nebylo nic pokapané od vosku a propálené ode dna plechových čajových svíček.</li>
+          </ul>
+        </div>
+
+        <!-- Pravidlo 5 -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">Před odjezdem</h2>
+          <ul class="list-disc pl-6">
+            <li class="mb-2">Před odjezdem vedoucí se skupinou uklidí (podle kontrolního seznamu úklidu), nahlásí veškeré škody (včetně odstraněných či opravených). Poté vrátí správci klíče a uhradí poplatek za všechny členy skupiny (správce vydá stvrzenku).</li>
+            <li class="mb-2">Pokud se něco rozbije z vybavení chaty, je třeba toto neprodleně nahlásit správci chaty a domluvit se na řešení!</li>
+            <li class="mb-2">Nenechávejte zde žádné jídlo. Ani pokud se jedná o tzv. trvanlivé potraviny (sůl, cukr, čaj, …)</li>
+            <li class="mb-2">Odvoz popelnic je ve čtvrtek, ve středu je nutno nachystat popelnici před plot. Ve středu vysypejte všechny odpadkové koše, později vyprodukovaný komunální odpad (kromě popela) odvezte. Pro separovaný odpad (plast, papír, sklo) je možno použít sběrné kontejnery u autobusové zastávky po celou dobu pobytu.</li>
+            <li class="mb-2">Přítomnost osob nenahlášených k ubytování (návštěvy) je možná pouze v rozumné míře a vždy jen s vědomím správce a vedoucího.</li>
+          </ul>
+        </div>
+
+        <!-- Pravidlo 6 -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">KONTROLNÍ SEZNAM PRO ÚKLID PŘED ODJEZDEM</h2>
+          <ul class="list-decimal pl-6">
+            <li class="mb-2">Vyklidit nepořádek, vrátit vše na původní místo.</li>
+            <li class="mb-2">Odstranit hrubé nečistoty z postelí (drobty, bláto apod.).</li>
+            <li class="mb-2">Utřít stůl, kuchyňskou linku, sporák a židle vlhkým hadrem.</li>
+            <li class="mb-2">Umýt veškeré použité nádobí a suché je uklidit zpět na určené místo.</li>
+            <li class="mb-2">Nechat vyhasnout kamna, studený popel vysypat do popelnice. Nachystat třísky. Buď přímo v kamnech na zapálení nebo vedle v bedně se dřevem a připravit zásobu dřeva na první zatopení.</li>
+            <li class="mb-2">Setřít podlahu mopem ve všech místnostech včetně sprchového koutu v celé její ploše vodou se saponátem. Vodu měňte, nestírejte vše jen jednou vodou!</li>
+            <li class="mb-2">Umýt WC a umývadlo.</li>
+            <li class="mb-2">Očistit nářadí a vrátit na původní místo.</li>
+            <li class="mb-2">Vyčistit ohniště, v žádném případě v něm nenechávejte odpadky.</li>
+            <li class="mb-2">Důkladně zavřít okna, následně i hlavní dveře a mříž.</li>
+            <li class="mb-2">V bytě nenechávejte žádné odpadky. Pouze málo znečištěný papír je možno nechat u kamen.</li>
+            <li class="mb-2">Uklidit v altánu a v jeho okolí.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-4 dark:text-white text-black">Při jakémkoliv problému neprodleně kontaktujte správce chaty!</h2>
+          <p class="text-lg">Jiří Roubík, tel.: <a href="tel:775334133" class="text-blue-500">775 334 133</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- sekce kontakty -->
+    <section id="section6" class="py-10 text-xl flex items-center flex-col">
+      <!-- Rychlý kontakt -->
+      <div class="w-96 min-h-96 dark:bg-[#1E1E1E] shadow-2xl backdrop-blur-md rounded-xl flex flex-col gap-3 justify-center items-start p-10">
+        <h1 class="text-4xl font-Roboto font-bold text-blue-500 cursor-default">Rychlý kontakt</h1>
+        <form id="fast-contact" action="src/php/inquiry-mail.php" method="post" class="grid grid-rows-6 gap-1 min-h-96 w-full">
+          <!-- Křestní -->
+          <div class="h-max">
+            <input name="first_name" type="text" placeholder="Jméno" id="frist-name-input" class="transition-all hover:border-blue-200 pl-2 py-1 shadow-md rounded-xl w-full border-white outline-none focus:border-blue-500 border-4 cursor-pointer" />
+            <span id="error-message" class="error-message opacity-0">Nezadali jste jméno</span>
+          </div>
+          <!-- Příjmení -->
+          <div class="h-max">
+            <input name="last_name" type="text" placeholder="Příjmení" id="last-name-input" class="transition-all hover:border-blue-200 pl-2 py-1 shadow-md rounded-xl w-full border-white outline-none focus:border-blue-500 border-4 cursor-pointer" />
+            <span id="error-message" class="error-message opacity-0">Nezadali jste příjmení</span>
+          </div>
+          <!-- Email -->
+          <div class="h-max">
+            <input name="email" type="text" placeholder="Email" id="email-input" class="transition-all hover:border-blue-200 pl-2 py-1 shadow-md rounded-xl w-full border-white outline-none focus:border-blue-500 border-4 cursor-pointer" />
+            <span id="error-message" class="error-message opacity-0">Nezadali jste email</span>
+          </div>
+          <!-- Heslo -->
+          <div class="h-max row-start-4 row-end-6">
+            <textarea name="message" id="message-input" rows="4" placeholder="Zpráva" class="transition-all hover:border-blue-200 pl-2 py-1 shadow-md rounded-xl w-full border-white outline-none focus:border-blue-500 border-4 cursor-pointer"></textarea>
+            <span id="error-message" class="error-message opacity-0">Nezadali jste zprávu</span>
+          </div>
+          
+          <div>
+            <button id="btn-submit" type="submit" class="bg-blue-600 hover:bg-blue-400 transition-all text-white font-Roboto font-medium text-2xl rounded-full py-2 px-10">Odeslat</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Kontaktní informace -->
+      <div class="max-w-md mx-auto mt-8 dark:text-[#B0B0B0] text-[#707070]">
+        <h1 class="text-3xl font-bold mb-3">Útulna Nad roklemi</h1>
+        <p class="text-lg mb-2">Rašovice 5</p>
+        <p class="text-lg mb-2">411 45 Úštěk-České Předměstí</p>
+        <p class="text-lg mb-2">Nadroklemi@mail.cz</p>
+        <p class="text-lg mb-2">Tel. 775 334 133</p>
+        <a href="../../download/Provozní řád.pdf" download class="text-[#BB86FC] font-semibold hover:underline">PROVOZNÍ ŘÁD KE STAŽENÍ</a>
+      </div>
+    </section>
+  </body>
+</html>
